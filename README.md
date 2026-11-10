@@ -1,163 +1,93 @@
-# HSY Skillbook
+# HSY Skillbook：网页复刻工作台与 Codex Skills
 
-一个由 HSY 维护的 Codex Skill 合集。每个 Skill 都放在独立目录中，包含可安装的 `SKILL.md`、按需加载的参考资料，以及完成真实任务所需的脚本或资源。
+这个仓库主要解决一件事：看到一个喜欢的网页后，把它的**可见设计和交互**做成可维护的前端代码，而不只是保存一张截图。你可以把公开 URL、截图、录屏、Figma 设计稿或已有源码交给 Codex，并用仓库中的 `recreate-webpage` Skill 约束采集、实现和验收流程。
 
-## Skill 清单
+仓库还包含一个 React 案例展厅，用真实页面验证这套流程。每个案例都保留独立路由，展厅提供复刻入口和原网站链接；`evidence/` 保存参考画面、实现截图和差异记录。**Skill 是工作方法，展厅是验证样例**：它不是通用爬虫，也不能仅凭一个 URL 自动保证任何网站都达到 1:1。
 
-| Skill | 用途 | 路径 |
+## 在线预览
+
+[打开案例展厅](https://hsy-skillbook-showcase.vercel.app/)
+
+![TRAE 首页复刻示例](./evidence/rendered/trae-route-1440x900.png)
+
+| 案例 | 本地路由 | 复刻范围与重点 |
 | --- | --- | --- |
-| `recreate-webpage` | 从公开 URL、截图、录屏、Figma 或现有源码生成可维护、可交互、可验证的前端实现 | [`skills/recreate-webpage`](./skills/recreate-webpage) |
-| `redact-sensitive-content` | 对图片或网页截图中的指定区域、语义对象或非保留区域进行预览确认和安全打码 | [`skills/redact-sensitive-content`](./skills/redact-sensitive-content) |
-| `uglify-webpage` | 从零生成或改造花花绿绿、故意不协调、审美极差但功能正常的网页 | [`skills/uglify-webpage`](./skills/uglify-webpage) |
-| `design-language-learning-plan` | 诊断语言学习瓶颈，辨析学习方法证据，并制定可执行的英语或雅思训练方案 | [`skills/design-language-learning-plan`](./skills/design-language-learning-plan) |
+| TRAE | `/trae/` | 首页视觉、流体像素背景与交互 |
+| Jufcloud | `/jufcloud/` | 二次元角色横幅与鼠标视差 |
+| New API | `/newapi/` | 产品首页、深浅主题与内容区 |
+| Osty | `/osty/` | 作品集首页与筛选交互 |
+| Heybike | `/heybike/` | 电商首页、轮播与四种演示风格 |
+| Avada | `/avada/` | 首页横幅、动态标题与响应式布局 |
 
-## uglify-webpage
+线上展厅是已发布版本；仓库中的最新改动以本地运行结果为准。案例只覆盖表中说明的范围，不包含参考网站的后端、账号、支付或全部子页面。
 
-`uglify-webpage` 坚持“视觉上故意失败，工程上必须成功”：通过可复现的 seed、1～5 级丑陋强度和六种反设计预设，有控制地制造色彩、字体、组件、间距、装饰与动效冲突，同时保留用户要求的功能和安全底线。详细流程见 [`SKILL.md`](./skills/uglify-webpage/SKILL.md)。
+## 本地运行
 
-## redact-sensitive-content
-
-`redact-sensitive-content` 使用“选择区域 → 编号预览 → 用户确认 → 正式打码 → 结果校验”的工作流，支持纯色遮挡、像素化、模糊和反向保留模式。详细流程见 [`SKILL.md`](./skills/redact-sensitive-content/SKILL.md)。
-
-## recreate-webpage
-
-`recreate-webpage` 面向交互级网页复刻，输出前端项目、交互回放证据和同视口视觉差异报告。
-
-仓库同时包含两个真实验证样例：TRAE 首屏使用 Three.js 流体像素场，Jufcloud 首屏使用角色与多图层 CSS 3D 鼠标视差。两个样例都只复刻横幅，不包含后续页面内容。
-
-![复刻页面桌面首屏](./evidence/rendered/trae-route-1440x900.png)
-
-![Jufcloud 二次元 3D 横幅](./evidence/rendered/jufcloud-route-1440x900.png)
-
-### 能力
-
-- 从 URL 采集 DOM、computed styles、字体、图片、SVG、视频和运行时特征
-- 记录 hover、点击、鼠标移动、滚动、拖拽和动画关键状态
-- 识别 CSS、Canvas、WebGL、Three.js、Lottie 和视频驱动效果
-- 按参考机制选择 React/CSS、GSAP、Canvas 或 Three.js 实现
-- 在相同视口和相同输入坐标下回放交互
-- 输出截图差异、质量门禁结果和有意偏差
-- 不以整页截图代替真实 UI
-
-### 安装
-
-仓库中的 Skill 位于 [`skills/recreate-webpage`](./skills/recreate-webpage)。本机开发时可以链接到 Codex Skill 目录：
+需要 Node.js `^20.19.0` 或 `>=22.12.0`，以及 npm。克隆仓库后运行：
 
 ```bash
-mkdir -p ~/.codex/skills
-ln -s "$(pwd)/skills/recreate-webpage" ~/.codex/skills/recreate-webpage
-```
-
-示例调用：
-
-```text
-使用 $recreate-webpage 复刻 https://example.com/，
-以 1440x900 为桌面基准，并覆盖 390x844、鼠标视差、滚动动画和主要按钮状态。
-```
-
-### 工作流程
-
-```mermaid
-flowchart LR
-    A[URL / 截图 / Figma / 源码] --> B[页面与资产采集]
-    B --> C[交互关键帧记录]
-    C --> D[设计令牌与技术路由]
-    D --> E[生成可维护前端]
-    E --> F[同输入交互回放]
-    F --> G[截图与状态比较]
-    G -->|未达标| E
-    G -->|达标| H[源码与验收报告]
-```
-
-Skill 的硬性流程和验收门槛见 [`SKILL.md`](./skills/recreate-webpage/SKILL.md)。
-
-## TRAE 验证样例
-
-目标横幅实测为 Three.js WebGL Shader 管线：
-
-- 流体噪声 Shader 持续生成绿白场
-- 5px 像素块、2px 间隙和亮度阈值形成点阵形态
-- 鼠标在 0.3 归一化半径内交换绿白像素
-- `1280px` 以上显示完整导航，移动端使用标题置顶和下载区置底布局
-
-同尺寸截图比较结果：
-
-| 状态 | 相似度 |
-| --- | ---: |
-| 桌面 1440x900 | 98.21% |
-| 截图视口 1266x1288 | 97.24% |
-| 移动端 390x844 | 95.43% |
-
-完整证据和差异说明见 [`evidence/trae-fidelity-ledger.md`](./evidence/trae-fidelity-ledger.md)。这些分数用于定位视觉差异，不等同于对功能、内容权利或生产可用性的评价。
-
-## Jufcloud 二次元 3D 样例
-
-- 角色、阴影、标题、线路板、白色斜面和光效使用独立图层
-- 鼠标 X/Y 映射为横幅的 `rotateY/rotateX`，并保留角色 7 秒浮动动画
-- 在 `1440x900`、鼠标 `(1340, 180)` 状态下，独立路由截图相似度为 99.04%
-- 完整参考和早期差异记录见 [`evidence/fidelity-ledger.md`](./evidence/fidelity-ledger.md)
-
-## 运行样例
-
-环境要求：Node.js 20+，npm 10+。
-
-```bash
-npm install
+gh repo clone ehhhsy/hsy-skillbook
+cd hsy-skillbook
+npm ci
 npm run dev
 ```
 
-浏览器入口：
+打开终端输出的本地地址（通常是 `http://127.0.0.1:5173/`）。首页是案例列表，表格中的路径可直接进入对应 Demo。若端口被占用，以 Vite 实际输出为准。
 
-- 案例展厅：`http://127.0.0.1:5173/`
-- TRAE：`http://127.0.0.1:5173/trae/`
-- Jufcloud 二次元 3D：`http://127.0.0.1:5173/jufcloud/`
-- Heybike 电商首页：`http://127.0.0.1:5173/heybike/`
-- Avada 动态横幅：`http://127.0.0.1:5173/avada/`
-
-在线演示：
-
-- 复刻案例展厅：<https://hsy-skillbook-showcase.vercel.app/>
-- 展厅内包含 TRAE、Jufcloud、New API、Osty、Heybike、Avada 六个案例；点击卡片进入详情，点击“原网站”打开参考站。
-- Heybike：<https://hsy-skillbook-showcase.vercel.app/heybike/>
-- Avada：<https://hsy-skillbook-showcase.vercel.app/avada/>
-- TRAE：<http://38.76.205.234/trae/>
-- Jufcloud 二次元 3D：<http://38.76.205.234/jufcloud/>
-
-每个 Demo 右侧的“原网站”按钮会在新标签页打开对应参考站。服务器使用 [`deploy/nginx-recreate-demo.conf`](./deploy/nginx-recreate-demo.conf) 提供静态文件和 SPA 路由回退；部署验收记录见 [`evidence/deployment-fidelity-ledger.md`](./evidence/deployment-fidelity-ledger.md)。
-
-质量检查：
+提交或修改代码前运行：
 
 ```bash
 npm run lint
 npm run build
 ```
 
-图片比较脚本需要 Pillow：
+前端使用 React、TypeScript、Vite 和原生 CSS；交互案例按需要使用 Three.js、Rive、Embla Carousel 等现有依赖。
+
+## 使用网页复刻 Skill
+
+[`recreate-webpage`](./skills/recreate-webpage/SKILL.md) 接受公开 URL、截图、录屏、Figma 或现有源码。它要求先锁定页面范围和视口，采集静态资源与交互状态，再按页面切片实现，并在相同视口、输入与时间点比较参考和结果。对动态页面，单张截图不足以证明交互还原度。
+
+在 Codex 中可以直接从本仓库引用该 Skill，或将其链接到本机 Skill 目录：
 
 ```bash
-python -m pip install pillow
-python skills/recreate-webpage/scripts/compare_images.py \
-  evidence/reference/trae-1440x900.png \
-  evidence/rendered/trae-1440x900.png \
-  --diff evidence/rendered/trae-1440x900-diff.png
+mkdir -p ~/.codex/skills
+ln -s "$PWD/skills/recreate-webpage" ~/.codex/skills/recreate-webpage
 ```
 
-## 目录
+若目标路径已存在，先检查它是否指向当前仓库，不要覆盖已有 Skill。示例请求：
 
 ```text
-skills/recreate-webpage/          # 可安装 Skill、脚本和参考规范
-skills/redact-sensitive-content/  # 图片与网页截图打码 Skill
-skills/uglify-webpage/            # 故意反协调但功能正常的网页 Skill
-src/                              # 案例展厅与各个 React 复刻样例
-public/assets/jufcloud/           # Jufcloud 验证样例公开页面资产
-evidence/reference/               # 参考页同视口证据
-evidence/rendered/                # 本地实现截图和差异图
-deploy/                           # 不含凭据的 Nginx 部署配置
-AGENTS.md                         # 项目工作和验收约束
+使用 $recreate-webpage 复刻这个页面的首页横幅：https://example.com/
+桌面按 1440×900、移动端按 390×844 验证；记录鼠标移动、菜单和定时动画的状态。
 ```
 
-## 合规与资产说明
+Skill 的具体采集、交互和验收规则按需放在 [`references/`](./skills/recreate-webpage/references/)；图片比较工具位于 [`scripts/compare_images.py`](./skills/recreate-webpage/scripts/compare_images.py)。
 
-本项目用于技术研究、授权复刻和视觉回归验证。不要使用 Skill 绕过登录、验证码、付费墙、反自动化或访问控制。
+## 其他 Skills
 
-TRAE 样例的动态背景由本项目重新实现，不包含目标站的模型、视频或截图资产。页面名称、Logo 文字和可见产品文案仍属于其各自权利人；公开发布、商用或二次分发前应确认使用范围或替换为自有品牌内容。仓库中保留的早期 Jufcloud 验证资产同样不自动获得开源再分发许可。
+| Skill | 用途 |
+| --- | --- |
+| [`redact-sensitive-content`](./skills/redact-sensitive-content/SKILL.md) | 对图片或网页截图做区域选择、预览确认和打码校验 |
+| [`uglify-webpage`](./skills/uglify-webpage/SKILL.md) | 在保留功能的前提下制作可控、可复现的反设计页面 |
+| [`design-language-learning-plan`](./skills/design-language-learning-plan/SKILL.md) | 诊断语言学习瓶颈，制定可执行的英语或雅思训练方案 |
+
+## 仓库结构
+
+```text
+skills/              可安装的 Codex Skills、参考资料和脚本
+src/                 展厅及各个 React 复刻页面
+public/assets/       Demo 使用的本地静态资源
+evidence/reference/  参考页面截图
+evidence/rendered/   实现截图与视觉比较材料
+evidence/*ledger.md  差异、交互及部署验收记录
+deploy/              静态部署配置示例
+AGENTS.md            本项目的开发与验收规范
+```
+
+复刻任务的验收不止看 `lint` 和构建。应在相同视口核对布局、字体、颜色、图片裁切、交互中间态和移动端，并在修改后重新截图。差异记录示例见 [Avada 横幅](./evidence/avada-fidelity-ledger.md) 和 [TRAE 首页](./evidence/trae-fidelity-ledger.md)。
+
+## 使用与版权边界
+
+本项目用于网页实现技术研究、授权复刻和视觉回归验证。只采集公开或有权使用的内容，不绕过登录、付费墙、验证码或访问控制。参考站的商标、文案、字体、图片及其他素材权利仍归其权利人；公开展示本仓库不代表这些素材可被自由二次分发或商用。
+
+当前仓库未附统一的开源许可证。若计划复用代码或公开发布自己的复刻成果，请先确认代码授权与所用第三方素材的使用范围。

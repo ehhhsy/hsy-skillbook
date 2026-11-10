@@ -26,7 +26,7 @@ export function RecreationGallery() {
     <main className="recreation-gallery">
       <header className="gallery-header">
         <a className="gallery-brand" href="/" aria-label="返回复刻台首页"><span className="gallery-brand-mark"><Sparkles size={16} /></span><span>复刻台</span></a>
-        <div className="gallery-header-meta"><span className="gallery-status-dot" aria-hidden="true" /><span>交互级网页复刻</span><a href="https://github.com/joey2001q-create/hsy-skillbook" target="_blank" rel="noreferrer" aria-label="打开 GitHub 仓库">GitHub <ExternalLink size={14} /></a></div>
+        <div className="gallery-header-meta"><span className="gallery-status-dot" aria-hidden="true" /><span>交互级网页复刻</span><a href="https://github.com/ehhhsy/hsy-skillbook" target="_blank" rel="noreferrer" aria-label="打开 GitHub 仓库">GitHub <ExternalLink size={14} /></a></div>
       </header>
       <section className="gallery-intro" aria-labelledby="gallery-title"><p className="gallery-eyebrow">RECREATE WEBPAGE</p><h1 id="gallery-title">把喜欢的网页，<em>复刻出来。</em></h1><p className="gallery-description">每个案例都保留关键视觉、交互和响应式行为。选择一个 Demo，进入复刻页面查看。</p></section>
       <section className="gallery-grid" aria-label="复刻案例列表">
