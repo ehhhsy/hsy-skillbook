@@ -1,0 +1,422 @@
+.hb-theme-switcher {
+  position: fixed;
+  z-index: 90;
+  right: 20px;
+  bottom: 82px;
+  width: 214px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  color: #111;
+  backdrop-filter: blur(18px);
+}
+
+.hb-theme-switcher-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 4px 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hb-theme-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hb-theme-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.hb-theme-option:hover {
+  transform: translateY(-1px);
+}
+
+.hb-theme-option[aria-pressed="true"] {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+.heybike-page[data-hb-theme="cyber"] {
+  --hb-yellow: #b7ff00;
+  --hb-ink: #eefcff;
+  background:
+    radial-gradient(circle at 90% 18%, rgba(0, 229, 255, 0.13), transparent 28%),
+    radial-gradient(circle at 10% 48%, rgba(183, 255, 0, 0.08), transparent 24%),
+    #070a0e;
+  color: #eefcff;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-announcement {
+  background: #b7ff00;
+  color: #050806;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-header,
+.heybike-page[data-hb-theme="cyber"] .hb-mobile-menu {
+  border-color: rgba(0, 229, 255, 0.3);
+  background: rgba(7, 10, 14, 0.9);
+  color: #eefcff;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-logo img,
+.heybike-page[data-hb-theme="cyber"] .hb-footer-main > img {
+  filter: invert(1) drop-shadow(0 0 8px rgba(0, 229, 255, 0.45));
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-hero,
+.heybike-page[data-hb-theme="cyber"] .hb-promo,
+.heybike-page[data-hb-theme="cyber"] .hb-compare,
+.heybike-page[data-hb-theme="cyber"] .hb-community img {
+  filter: saturate(0.86) contrast(1.12) brightness(0.78) hue-rotate(12deg);
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-products,
+.heybike-page[data-hb-theme="cyber"] .hb-stories,
+.heybike-page[data-hb-theme="cyber"] .hb-guarantees,
+.heybike-page[data-hb-theme="cyber"] .hb-events,
+.heybike-page[data-hb-theme="cyber"] .hb-press,
+.heybike-page[data-hb-theme="cyber"] .hb-assistance {
+  background: transparent;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-product,
+.heybike-page[data-hb-theme="cyber"] .hb-guarantees article,
+.heybike-page[data-hb-theme="cyber"] .hb-event-grid article {
+  border-color: rgba(0, 229, 255, 0.26);
+  background: linear-gradient(145deg, rgba(15, 26, 32, 0.98), rgba(7, 10, 14, 0.98));
+  box-shadow: inset 0 0 0 1px rgba(183, 255, 0, 0.04);
+  color: #eefcff;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-product-media,
+.heybike-page[data-hb-theme="cyber"] .hb-dialog,
+.heybike-page[data-hb-theme="cyber"] .hb-heading-row button,
+.heybike-page[data-hb-theme="cyber"] .hb-press-logos button,
+.heybike-page[data-hb-theme="cyber"] .hb-review-nav button {
+  border-color: rgba(0, 229, 255, 0.35);
+  background: #0d1419;
+  color: #eefcff;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-product-media img,
+.heybike-page[data-hb-theme="cyber"] .hb-guarantees img {
+  filter: drop-shadow(0 0 13px rgba(0, 229, 255, 0.22));
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-centered-title,
+.heybike-page[data-hb-theme="cyber"] .hb-heading-row h2,
+.heybike-page[data-hb-theme="cyber"] .hb-guarantees > h2,
+.heybike-page[data-hb-theme="cyber"] .hb-community h2,
+.heybike-page[data-hb-theme="cyber"] .hb-stories > h2 {
+  text-shadow: 0 0 24px rgba(0, 229, 255, 0.38);
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-heading-row a,
+.heybike-page[data-hb-theme="cyber"] .hb-smart-item a,
+.heybike-page[data-hb-theme="cyber"] .hb-smart-item button,
+.heybike-page[data-hb-theme="cyber"] .hb-assistance a,
+.heybike-page[data-hb-theme="cyber"] .hb-assistance form {
+  border-color: rgba(183, 255, 0, 0.48);
+  background: rgba(13, 20, 25, 0.8);
+  color: #eefcff;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-press,
+.heybike-page[data-hb-theme="cyber"] .hb-assistance,
+.heybike-page[data-hb-theme="cyber"] .hb-stories,
+.heybike-page[data-hb-theme="cyber"] .hb-guarantees {
+  border-top: 1px solid rgba(0, 229, 255, 0.18);
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-press > p,
+.heybike-page[data-hb-theme="cyber"] .hb-story-grid p,
+.heybike-page[data-hb-theme="cyber"] .hb-event-grid p,
+.heybike-page[data-hb-theme="cyber"] .hb-blog small,
+.heybike-page[data-hb-theme="cyber"] .hb-assistance p {
+  color: #8da4ad;
+}
+
+.heybike-page[data-hb-theme="cyber"] .hb-footer-dark {
+  border-top: 1px solid #00e5ff;
+  background: #020405;
+}
+
+.heybike-page[data-hb-theme="mono"] {
+  --hb-yellow: #111;
+  --hb-ink: #0c0c0c;
+  background: #f7f7f5;
+  color: #0c0c0c;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-announcement {
+  border-bottom: 1px solid #111;
+  background: #fff;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-header {
+  border-bottom: 2px solid #111;
+  background: rgba(247, 247, 245, 0.96);
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-hero img,
+.heybike-page[data-hb-theme="mono"] .hb-promo img,
+.heybike-page[data-hb-theme="mono"] .hb-compare img,
+.heybike-page[data-hb-theme="mono"] .hb-smart-item img,
+.heybike-page[data-hb-theme="mono"] .hb-story-grid img,
+.heybike-page[data-hb-theme="mono"] .hb-event-grid img,
+.heybike-page[data-hb-theme="mono"] .hb-community img,
+.heybike-page[data-hb-theme="mono"] .hb-blog-image img {
+  filter: grayscale(1) contrast(1.04);
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-section {
+  border-top: 1px solid #111;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-product,
+.heybike-page[data-hb-theme="mono"] .hb-guarantees article,
+.heybike-page[data-hb-theme="mono"] .hb-event-grid article,
+.heybike-page[data-hb-theme="mono"] .hb-smart-item img,
+.heybike-page[data-hb-theme="mono"] .hb-blog-image {
+  border: 1px solid #111;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-product-copy > button,
+.heybike-page[data-hb-theme="mono"] .hb-promo-copy a,
+.heybike-page[data-hb-theme="mono"] .hb-assistance form button {
+  background: #111;
+  color: #fff;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-heading-row h2,
+.heybike-page[data-hb-theme="mono"] .hb-centered-title,
+.heybike-page[data-hb-theme="mono"] .hb-guarantees > h2,
+.heybike-page[data-hb-theme="mono"] .hb-community h2,
+.heybike-page[data-hb-theme="mono"] .hb-stories > h2 {
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-heading-row a,
+.heybike-page[data-hb-theme="mono"] .hb-smart-item a,
+.heybike-page[data-hb-theme="mono"] .hb-smart-item button,
+.heybike-page[data-hb-theme="mono"] .hb-story-tabs button,
+.heybike-page[data-hb-theme="mono"] .hb-assistance a,
+.heybike-page[data-hb-theme="mono"] .hb-assistance form,
+.heybike-page[data-hb-theme="mono"] .hb-heading-row button {
+  border-radius: 0;
+}
+
+.heybike-page[data-hb-theme="mono"] .hb-press,
+.heybike-page[data-hb-theme="mono"] .hb-stories,
+.heybike-page[data-hb-theme="mono"] .hb-guarantees,
+.heybike-page[data-hb-theme="mono"] .hb-events,
+.heybike-page[data-hb-theme="mono"] .hb-assistance {
+  background: #f7f7f5;
+}
+
+.heybike-page[data-hb-theme="sport"] {
+  --hb-yellow: #ffef00;
+  --hb-ink: #111827;
+  background: #f4f6f8;
+  color: #111827;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-announcement {
+  background: linear-gradient(90deg, #ff3d00, #ff006e);
+  color: #fff;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-header {
+  border-bottom: 4px solid #00d9ff;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-hero,
+.heybike-page[data-hb-theme="sport"] .hb-promo,
+.heybike-page[data-hb-theme="sport"] .hb-compare,
+.heybike-page[data-hb-theme="sport"] .hb-smart-item img,
+.heybike-page[data-hb-theme="sport"] .hb-blog-image {
+  filter: saturate(1.32) contrast(1.06);
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-products,
+.heybike-page[data-hb-theme="sport"] .hb-stories,
+.heybike-page[data-hb-theme="sport"] .hb-events {
+  background:
+    linear-gradient(135deg, rgba(0, 217, 255, 0.06) 25%, transparent 25%) 0 0 / 28px 28px,
+    #f4f6f8;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-product,
+.heybike-page[data-hb-theme="sport"] .hb-guarantees article,
+.heybike-page[data-hb-theme="sport"] .hb-event-grid article {
+  border: 2px solid #111827;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 8px 8px 0 #00d9ff;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-product:nth-child(even),
+.heybike-page[data-hb-theme="sport"] .hb-guarantees article:nth-child(even) {
+  box-shadow: 8px 8px 0 #ff3d00;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-heading-row h2,
+.heybike-page[data-hb-theme="sport"] .hb-centered-title,
+.heybike-page[data-hb-theme="sport"] .hb-guarantees > h2,
+.heybike-page[data-hb-theme="sport"] .hb-community h2,
+.heybike-page[data-hb-theme="sport"] .hb-stories > h2 {
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-product-copy > button,
+.heybike-page[data-hb-theme="sport"] .hb-promo-copy a,
+.heybike-page[data-hb-theme="sport"] .hb-assistance form button {
+  background: #ff3d00;
+  color: #fff;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-heading-row a,
+.heybike-page[data-hb-theme="sport"] .hb-smart-item a,
+.heybike-page[data-hb-theme="sport"] .hb-smart-item button,
+.heybike-page[data-hb-theme="sport"] .hb-assistance a,
+.heybike-page[data-hb-theme="sport"] .hb-assistance form {
+  border: 2px solid #111827;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-press {
+  background: linear-gradient(110deg, #ffef00 0 33%, #00d9ff 33% 66%, #ff3d00 66%);
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-footer-dark {
+  border-top: 8px solid #ff3d00;
+  background: #111827;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-rating,
+.heybike-page[data-hb-theme="sport"] .hb-prices strong {
+  color: #ff3d00;
+}
+
+.heybike-page[data-hb-theme="sport"] .hb-story-tabs button[aria-pressed="true"] {
+  border-color: #ff3d00;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="cyber"]) .hb-theme-switcher {
+  border-color: rgba(0, 229, 255, 0.42);
+  background: rgba(6, 11, 15, 0.92);
+  color: #eefcff;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="cyber"]) .hb-theme-option {
+  border-color: rgba(0, 229, 255, 0.3);
+  background: #0d1419;
+  color: #b9cad0;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="cyber"]) .hb-theme-option[aria-pressed="true"] {
+  border-color: #b7ff00;
+  background: #b7ff00;
+  color: #050806;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="mono"]) .hb-theme-switcher {
+  border: 2px solid #111;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: 8px 8px 0 #111;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="mono"]) .hb-theme-option {
+  border-radius: 0;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="sport"]) .hb-theme-switcher {
+  border: 2px solid #111827;
+  background: #ffef00;
+  box-shadow: 7px 7px 0 #00d9ff;
+}
+
+.site-stage-heybike:has(.heybike-page[data-hb-theme="sport"]) .hb-theme-option[aria-pressed="true"] {
+  border-color: #ff3d00;
+  background: #ff3d00;
+}
+
+@media (max-width: 767px) {
+  .hb-theme-switcher {
+    right: 10px;
+    bottom: 70px;
+    width: auto;
+    max-width: calc(100vw - 20px);
+    padding: 7px;
+    border-radius: 13px;
+  }
+
+  .hb-theme-switcher-title {
+    display: none;
+  }
+
+  .hb-theme-options {
+    display: flex;
+    gap: 4px;
+  }
+
+  .hb-theme-option {
+    justify-content: center;
+    width: 39px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .hb-theme-option span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .heybike-page[data-hb-theme="sport"] .hb-product,
+  .heybike-page[data-hb-theme="sport"] .hb-guarantees article,
+  .heybike-page[data-hb-theme="sport"] .hb-event-grid article {
+    box-shadow: 5px 5px 0 #00d9ff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-theme-option {
+    transition: none;
+  }
+}
